@@ -1,2 +1,6 @@
 hello world!
+<<<<<<< HEAD
 master
+=======
+dev
+>>>>>>> dev
