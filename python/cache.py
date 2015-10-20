@@ -6,6 +6,7 @@ arrurl = []
 arrurl = [
 "http://www.emao.com/city/hankou/?atm_yimao=1&lyma0",
 "http://www.emao.com/city/dalian/?atm_yimao=1&lyma0",
+"http://www.emao.com/city/shanghai/?atm_yimao=1&lyma0",
 "http://www.emao.com/city/ningbo/?atm_yimao=1&lyma0"]
 if(len(arrurl) == 0):
 	content = input("")
