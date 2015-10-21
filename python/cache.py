@@ -5,7 +5,7 @@ arrhead = ["via","X-Cache","X-Swift-CacheTime","X-Swift-SaveTime"]
 arrurl = []
 arrurl = [
 "http://www.emao.com/city/hankou/?atm_yimao=1&lyma0",
-"http://www.emao.com/city/beijing/?atm_yimao=1&lyma0",
+"http://www.emao.com/city/guangzhou/?atm_yimao=1&lyma0",
 "http://www.emao.com/city/shanghai/?atm_yimao=1&lyma0",
 "http://www.emao.com/city/ningbo/?atm_yimao=1&lyma0"]
 if(len(arrurl) == 0):
