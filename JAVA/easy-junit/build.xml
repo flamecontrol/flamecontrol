@@ -1,0 +1,121 @@
+﻿<?xml version='1.0' encoding="UTF-8" ?>
+<project name="nameProject" default="TestReport" basedir="."> 
+
+	<property environment="env" />
+	<property file="build.properties" />
+	<!--下面设置自己的日期时间格式-->
+	<tstamp prefix="my">
+		<format property="cctimestamp" pattern="yyyy-MM-ddHH:mm:ss.SSS" />
+        <format property="ccdattime" pattern="yyyyMMddHHmmss" />
+	</tstamp>
+	<!--版本控制信息-->
+	<property name="version.message" value="version:${project.version} build:${my.cctimestamp}" />
+	<property name="version.file" value="version.txt"/>
+    <!--环境依赖信息-->
+	<path id="classpath">
+		<fileset dir="./lib/" includes="**/*.jar" />
+	</path>
+    <!--测试环境依赖信息-->
+    <path id="test.classpath">
+		<fileset dir="./test-lib/" includes="**/*.jar" />
+	</path>
+    <target name="prepare">
+        <echo message="＝＝＝＝＝＝欢迎使用联启单休测试集成环境V1.0＝＝＝＝＝＝" />
+		<echo message="应用版本信息：${version.message}" />
+        <echo message="运行ant all生成全部报告（代码覆盖率，JUNIT报告）" />
+		<echo message="运行ant junit-test只生成JUNIT测试报告" />
+        <echo message="运行ant compile编译源程序" />
+        <echo message="运行ant compile-test编译测试源程序" />
+        <echo message="＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝===＝＝＝＝" />
+	</target>
+
+    <!-- 清理-->
+	<target name="clean" description="delete all intermediary files">
+		<delete dir="${classes.dir}" quiet="true" />
+        <delete dir="${reports.dir}" quiet="true" />
+	</target>
+	
+    <!--环境初使化-->
+	<target name="init" depends="clean">
+        <mkdir dir="${reports.dir}" />
+		<mkdir dir="${classes.dir}" />
+		<mkdir dir="${reports.xml.dir}" />
+		<mkdir dir="${reports.html.dir}" />
+	</target>
+	
+    <!-- 编译源程序-->
+	<target name="compile" depends="init" description="compile classes">
+		<javac destdir="${classes.dir}" srcdir="${src.dir}" debug="yes"
+         deprecation="false" optimize="false" failonerror="true" encoding="UTF-8" source="1.5">
+			<classpath>
+				<path refid="classpath" />
+			</classpath>
+		</javac>
+		<copy todir="${classes.dir}" overwrite="true">  
+		                <fileset dir="${src.dir}">  
+		                    <include name="**/*.xml" />
+		                    <include name="**/*.properties" />
+		                </fileset>  
+		</copy>
+	</target>
+	
+    <!-- 编译测试源程序-->
+    <target name="compile-test" depends="compile" description="test compile classes">
+		<javac destdir="${classes.dir}" srcdir="${test.src.dir}" debug="yes"
+         deprecation="false" optimize="false" failonerror="true" encoding="UTF-8" source="1.5">
+			<classpath>
+                <path refid="classpath" />
+				<path refid="test.classpath" />
+			</classpath>
+		</javac>
+	</target>
+	
+    <!-- 打包-->
+	<target name="jar" depends="compile" description="build release jar">
+		<jar destfile="${project.name}-${project.version}-${my.ccdattime}.jar">
+			<fileset dir="${classes.dir}">
+				<include name="**/*.class" />
+				<include name="**/*.xml" />
+				<include name="**/*.properties" />
+			</fileset>
+		</jar>
+	</target>
+	
+    <!-- 执行测试-->
+    <target name="junit-test" depends="compile,compile-test">
+		<junit fork="yes" dir="${basedir}" failureProperty="test.failed">
+			<classpath refid="classpath" />
+            <classpath refid="test.classpath" />
+			<classpath location="${instrumented.dir}" />
+			<classpath location="${classes.dir}" />			
+			<formatter type="xml" />
+			<test name="${testcase}" todir="${reports.xml.dir}" if="testcase" />
+			<batchtest todir="${reports.xml.dir}" unless="testcase">
+				<fileset dir="${test.src.dir}">
+					<include name="**/*Test.java" />
+				</fileset>
+			</batchtest>
+		</junit>
+		<junitreport todir="${reports.xml.dir}">
+			<fileset dir="${reports.xml.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${reports.html.dir}" />
+		</junitreport>
+	</target>
+	
+    <!-- 全部-->
+    <target name="all"
+		depends="junit-test"
+		description="Compile, instrument ourself, run the tests and generate JUnit and coverage reports." >
+        <echo message="${version.message}/n/r " file="${version.file}" append="true"/> 
+	</target> 
+     
+    <!-- 报告-->
+     <target name="TestReport" depends="all">
+            <exec executable="cmd.exe">
+                   <arg line="/c mail.vbs"/>
+            </exec>
+     </target>
+     
+</project>
