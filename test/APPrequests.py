@@ -1,5 +1,6 @@
+#-*- coding: UTF-8 -*-
 import requests
-import urllib, urllib.parse
+import urllib
 import json
 import datetime
 
@@ -12,14 +13,14 @@ urllist = [# app现有功能，所使用到的接口整理：
 #资讯各个频道列表接口；
 # 1,"全部"  102,"新车"  103,"评测"  104,"比车"   105,"导购"
 # 108,"新闻"   106,"用车"   107,"说吧"   125,"行业"    200,"自媒体"
-'http://app.emao.com/v1.3/?info={"code":1201,"channel":1,"offset":0,"len":20}',
-# 'http://app.emao.com/v1.3/?info={"code":1201,"channel":102,"offset":0,"len":20}',
-# 'http://app.emao.com/v1.3/?info={"code":1201,"channel":103,"offset":0,"len":20}',
-# 'http://app.emao.com/v1.3/?info={"code":1201,"channel":104,"offset":0,"len":20}',
-# 'http://app.emao.com/v1.3/?info={"code":1201,"channel":105,"offset":0,"len":20}',
-# 'http://app.emao.com/v1.3/?info={"code":1201,"channel":106,"offset":0,"len":20}',
-# 'http://app.emao.com/v1.3/?info={"code":1201,"channel":107,"offset":0,"len":20}',
-# 'http://app.emao.com/v1.3/?info={"code":1201,"channel":108,"offset":0,"len":20}',
+'http://app.emao.com/v1.4/?info={"code":1201,"channel":1,"offset":0,"len":20}',
+# 'http://app.emao.com/v1.4/?info={"code":1201,"channel":102,"offset":0,"len":20}',
+# 'http://app.emao.com/v1.4/?info={"code":1201,"channel":103,"offset":0,"len":20}',
+# 'http://app.emao.com/v1.4/?info={"code":1201,"channel":104,"offset":0,"len":20}',
+# 'http://app.emao.com/v1.4/?info={"code":1201,"channel":105,"offset":0,"len":20}',
+# 'http://app.emao.com/v1.4/?info={"code":1201,"channel":106,"offset":0,"len":20}',
+# 'http://app.emao.com/v1.4/?info={"code":1201,"channel":107,"offset":0,"len":20}',
+# 'http://app.emao.com/v1.4/?info={"code":1201,"channel":108,"offset":0,"len":20}',
 # #【1202】 新闻正文
 # 'http://app.emao.com/v1.4/?info={"code":1202,"docId":16864}',
 # #【1006】获取广告
@@ -79,12 +80,12 @@ urllist = [# app现有功能，所使用到的接口整理：
 #
 # # 经销商接口
 # #【5000】经销商列表
-# 'http://app.emao.com/v1.3/dealer/?info={ "code": "5000","offset":2,"len": 2,"seriesid":"9","cityid":"1"}',
-# 'http://app.emao.com/v1.3/dealer/?info={ "code": "5000","offset":0,"len": 300,"seriesid":"9","cityid":"1"}',
+# 'http://app.emao.com/v1.4/dealer/?info={ "code": "5000","offset":2,"len": 2,"seriesid":"9","cityid":"1"}',
+# 'http://app.emao.com/v1.4/dealer/?info={ "code": "5000","offset":0,"len": 300,"seriesid":"9","cityid":"1"}',
 #
 # #【8001】提交申请表单
 # #预约试驾提交 8001  200OK
-# u'http://app.emao.com/v1.3/dealer/?info={"dealer_ids":["7639","7612","7580"],"c_model":"14748","mobile":"15101139105","province_id":"3","code":"8001","source":"app","tag":"shijia","param":{"remark":"喜欢红色的"},"sex":1,"name":"张三"}',
+# u'http://app.emao.com/v1.4/dealer/?info={"dealer_ids":["7639","7612","7580"],"c_model":"14748","mobile":"15101139105","province_id":"3","code":"8001","source":"app","tag":"shijia","param":{"remark":"喜欢红色的"},"sex":1,"name":"张三"}',
 # # 4.3 快速选车 ---价格
 # #【1501】筛选结果
 # 'http://app.emao.com/v1.4/?info={"source":"","code":"1501","price":"5-18","level":"4","No":"1449826017","gearbox":"","displacement":""}',
