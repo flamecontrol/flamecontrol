@@ -1,2 +1,0 @@
-python lauch.py
-pause
