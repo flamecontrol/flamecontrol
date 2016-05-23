@@ -10,7 +10,7 @@ from homepage import HOME
 from mail import MAIL
 
 
-fname = u"test_data/test.xlsx"
+fname = u"test_data/testdata.xlsx"
 Ctitle = 1
 Cname = 2
 Clevel = 4
