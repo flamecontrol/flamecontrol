@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.remote.webelement import WebElement
+from seleniumDEMO import webdriver
+from seleniumDEMO.webdriver.common.by import By
+from seleniumDEMO.webdriver.remote.webelement import WebElement
 import os,time
-from selenium.webdriver.chrome.options import Options
+from seleniumDEMO.webdriver.chrome.options import Options
 from ElementOperation import ElementOperation
 
 time2 = 60

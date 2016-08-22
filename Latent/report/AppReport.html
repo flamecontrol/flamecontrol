@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Report_title</h1>
-<p class='attribute'><strong>Start Time:</strong> 2016-05-13 11:54:37</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:00.000567</p>
-<p class='attribute'><strong>Status:</strong> Error 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2016-06-06 19:51:56</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:22.210590</p>
+<p class='attribute'><strong>Status:</strong> Failure 1 Error 2</p>
 
 <p class='description'>Report_description</p>
 </div>
@@ -222,12 +222,12 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='errorClass'>
-    <td>LatentApp.Latent</td>
-    <td>1</td>
+    <td>LatentWeb.LatentWeb</td>
+    <td>2</td>
     <td>0</td>
-    <td>0</td>
     <td>1</td>
-    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
 <tr id='ft1.1' class='none'>
@@ -246,7 +246,84 @@ function showOutput(id, name) {
         <pre>
         
 ft1.1: b''Traceback (most recent call last):
-  File "./script/LatentApp.py", line 30, in testcase
+  File "./script/LatentWeb.py", line 30, in testcase
+    EC.text_to_be_present_in_element((By.XPATH, "//span[text()='新加入项目']"), "资料提交审核成功")
+  File "/usr/local/lib/python3.5/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+    at FirefoxDriver.prototype.findElementInternal_ (file:///var/folders/g0/7zg9tn25211cr6k9ddn09fs80000gn/T/tmpqrutryod/extensions/fxdriver@googlecode.com/components/driver-component.js:10659)
+    at FirefoxDriver.prototype.findElement (file:///var/folders/g0/7zg9tn25211cr6k9ddn09fs80000gn/T/tmpqrutryod/extensions/fxdriver@googlecode.com/components/driver-component.js:10668)
+    at DelayedCommand.prototype.executeInternal_/h (file:///var/folders/g0/7zg9tn25211cr6k9ddn09fs80000gn/T/tmpqrutryod/extensions/fxdriver@googlecode.com/components/command-processor.js:12534)
+    at DelayedCommand.prototype.executeInternal_ (file:///var/folders/g0/7zg9tn25211cr6k9ddn09fs80000gn/T/tmpqrutryod/extensions/fxdriver@googlecode.com/components/command-processor.js:12539)
+    at DelayedCommand.prototype.execute/&lt; (file:///var/folders/g0/7zg9tn25211cr6k9ddn09fs80000gn/T/tmpqrutryod/extensions/fxdriver@googlecode.com/components/command-processor.js:12481)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.2' class='none'>
+    <td class='failCase'><div class='testcase'>testcase1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        fail</a>
+
+    <div id='div_ft1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.2: b''Traceback (most recent call last):
+  File "./script/LatentWeb.py", line 43, in testcase1
+    self.assertEquals('1', '13')
+AssertionError: '1' != '13'
+- 1
++ 13
+?  +
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>LatentAndroid.LatentAndroid</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>testcase</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        error</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: b''Traceback (most recent call last):
+  File "./script/LatentAndroid.py", line 30, in testcase
     print("why")
   File "/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/lib/python3.5/HTMLTestRunner.py", line 118, in write
     self.fp.write(s)
@@ -262,10 +339,10 @@ TypeError: a bytes-like object is required, not 'str'
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>1</td>
+    <td>3</td>
     <td>0</td>
-    <td>0</td>
     <td>1</td>
+    <td>2</td>
     <td>&nbsp;</td>
 </tr>
 </table>

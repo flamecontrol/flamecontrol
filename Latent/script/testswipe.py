@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #coding=utf-8
-from appium import webdriver
+from AppiumTest import webdriver
 import unittest
 from time import sleep
 

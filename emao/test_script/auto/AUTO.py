@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #coding=utf-8
-from selenium import webdriver
+from seleniumDEMO import webdriver
 import unittest
 import HTMLTestRunner
 

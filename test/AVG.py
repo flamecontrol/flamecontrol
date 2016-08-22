@@ -5,9 +5,6 @@ def analysistime(m):
     re.append("{:.3f}".format(sum(m)/len(m)))
     return  re
 
-
-
-
 arrlist = [2,3,4]
 arrlist.append(5)
 arrlist.append(1)

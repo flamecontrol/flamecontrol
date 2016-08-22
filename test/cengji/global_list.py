@@ -1,0 +1,1 @@
+GLOBAL_A = {'phone': '', 'a': '', 'shenfen': 'd'}

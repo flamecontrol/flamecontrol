@@ -2,12 +2,12 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from seleniumDEMO import webdriver
+from seleniumDEMO.webdriver.common.by import By
+from seleniumDEMO.webdriver.support.ui import Select
+from seleniumDEMO.common.exceptions import NoSuchElementException
+from seleniumDEMO.webdriver.common.action_chains import ActionChains
+from seleniumDEMO.webdriver.common.desired_capabilities import DesiredCapabilities
 import unittest, time, re , os ,logging,traceback
 
 time1 = 60

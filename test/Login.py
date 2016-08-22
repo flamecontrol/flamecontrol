@@ -1,8 +1,8 @@
 # coding=utf-8
 import sys
 import time
-from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
+from seleniumDEMO import webdriver
+from seleniumDEMO.webdriver.common.action_chains import ActionChains
 from time import ctime
 
 
@@ -23,6 +23,8 @@ driver.find_element_by_class_name('btn-fixed').click()
 # 点击登录
 tt
 # 上传图片是个坑需要js调整css里的display
+
+time.sleep(3)
 js_idcard = '$("[name=\'upload_idcard\']").show()'
 driver.execute_script(js_idcard)
 driver.find_element_by_name('upload_idcard').send_keys(File_Path)

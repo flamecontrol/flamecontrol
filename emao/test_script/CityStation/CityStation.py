@@ -2,16 +2,16 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
+from seleniumDEMO import webdriver
+from seleniumDEMO.webdriver.common.by import By
+from seleniumDEMO.webdriver.common.keys import Keys
+from seleniumDEMO.webdriver.support.ui import Select
+from seleniumDEMO.common.exceptions import NoSuchElementException
+from seleniumDEMO.common.exceptions import NoAlertPresentException
 import unittest, time, re, os
 import HTMLTestRunner
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from seleniumDEMO.webdriver.common.action_chains import ActionChains
+from seleniumDEMO.webdriver.common.desired_capabilities import DesiredCapabilities
 sys.path.append("/var/lib/jenkins/workspace/emao/public")
 from Send import send
 from logincsy import Login

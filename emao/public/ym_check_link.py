@@ -7,7 +7,7 @@ modified on 2015年9月14日
 @environment：通用环境
 '''
 def ym_check_link(url,islogined):
-	from selenium import webdriver
+	from seleniumDEMO import webdriver
 	import time,urllib2,sys
 	import codecs
 

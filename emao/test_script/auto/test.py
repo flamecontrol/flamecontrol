@@ -1,7 +1,7 @@
 #coding:utf-8
 import HTMLTestRunner
 import unittest
-from selenium import webdriver
+from seleniumDEMO import webdriver
 import xlrd
 from AUTO import AUTO
 

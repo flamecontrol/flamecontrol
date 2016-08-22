@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
+#coding=utf-8
 import requests
-import urllib, urllib.parse
+# import urllib, urllib.parse
 import json
 import datetime
 
@@ -94,23 +96,6 @@ u'http://app.emao.com/v1.4/dealer/?info={"dealer_ids":["7639","7612","7580"],"c_
 #【1700】车系搜索
 u'http://app.emao.com/v1.4/?info={"code":"1700","ltime":0,"len":20,"offset":0,"tag":"0","keyword":"奥迪"}',
 
-# 5、用户中心
-#【2010】获得个人资料
-'http://i.emao.com/api/v1/mobile.php/?info={"token":"995895896","code":"2010"}',
-#【2011】更新用户头像
-'http://i.emao.com/api/v1/mobile.php/?info={"token":"8999405135","code":"2011"}',
-#【2012】更新用户信息；登录请求的接口也是2012
-u'http://i.emao.com/api/v1/mobile.php/?info={"gender":"0","cityId":"4","provinceId":"3","nickname":"樱桃小丸","code":"2012","birthday":"1989-01-01","token":"4930639733","districtId":"0"}',
-#【2013】用户注册提交         (No response received)
-u'http://i.emao.com/api/v1/mobile.php/?info={"password":"46f94c8de14fb36680850768ff1b7f2a","code":"2013","mobile":"15101139103","nickname":"小伙伴","deviceId":"1F0D18D2-B03C-4CA5-B953-B923C5201E30","tempToken":"9139338163"}',
-#【2014】验证手机号是否可用   (No response received)
-'http://i.emao.com/api/v1/mobile.php/?info={"mobile":"15101139103","code":"2014"}',
-#【2015】验证昵称是否可用     (No response received)
-u'http://i.emao.com/api/v1/mobile.php/?info={"nickname":"小伙伴","code":"2015"}',
-#【1004】app用户手机号码注册，获得短信验证码  (403  forbidden)
-'http://i.emao.com/api/v1/mobile.php/?info={"tag":"register","mobile":"15101139103","code":"1004"}',
-#【1005】校验短信验证码
-'http://i.emao.com/api/v1/mobile.php/?info={"valiCode":"985905","mobile":"15101139103","code":"1005"}',
 
 # 5.2.2  添加关注车型
 #【1311】获得所有品牌  同4.2.1 [1311]获得所有品牌
@@ -142,8 +127,6 @@ u'http://app.emao.com/v1.4/?info={"code":"2070","account":"樱桃小丸子","bui
 #【2170】联合登录(微信账户登录)
 'http://app.emao.com/v1.4/?info={"deviceId":"1F0D18D2-B03C-4CA5-B953-B923C5201E30","source":"weixin","openid":"oXE7xt_fySL9CYiRKqEUTVl2LDm8","code":"2170","platform":"Iphone","buildNo":"1.4.1","token":"OezXcEiiBSKSxW0eoylIeMaF-0cOeIKfP2pp543kIBXr_wbtObqRSYcVdYe3BFKHeLHJSW2_KIMS_cQN-0wccYHJntcMtkNgc_wr9iGuuvQU3hLv8eBjCBGtM2GnePfaocqAw5tMUEv2-Yo1Zh1F7A"}',
 
-#【2071】重置密码
-'http://i.emao.com/api/v1/mobile.php/?info={"code":"2071","newPwd":"46f94c8de14fb36680850768ff1b7f2a","mobile":"15101139103","tempToken":"6579832155"}',
 #【2073】退出登录
 'http://app.emao.com/v1.4/?info={"code":"2073","deviceId": "1F0D18D2-B03C-4CA5-B953-B923C5201E30","buildNo":"1.4.1","platform":"Iphone"}'
 
@@ -157,7 +140,7 @@ for url in urllist:
     count = count + 1
     print(url)
     retime = []
-    for i in range(10):
+    for i in range(1):
         r = s.get(url)
         costhttp = r.elapsed.total_seconds()
         retime.append(costhttp)
@@ -165,11 +148,12 @@ for url in urllist:
     ma = max(retime)
     mi = min(retime)
     # print(retime)
-    if float(av) > 0.5:
+    # if float(av) > 0.0:
+    if float(av) > 0.0:
         text = r.text
-        print(text)
-        print("应答长度:" + str(len(text)))
-        print("请求超时:" + str(av) + "(" + str(ma) + "," + str(mi) + ")")
+        print("-----------" + text)
+        # print("应答长度:" + str(len(text)))
+        # print("请求超时:" + str(av) + "(" + str(ma) + "," + str(mi) + ")")
     else:
         print(av)
 

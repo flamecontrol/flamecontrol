@@ -7,7 +7,7 @@ Created on 2015年9月11日
 '''
 
 def ff_configure():
-	from selenium import webdriver
+	from seleniumDEMO import webdriver
 
 	#import sys 
 	#reload(sys) 

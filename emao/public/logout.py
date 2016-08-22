@@ -5,9 +5,9 @@ Created on 2015年9月14日
 @fun：用户退出登录
 @environment：通用环境
 '''
-from selenium import webdriver
+from seleniumDEMO import webdriver
 import time
-from selenium.webdriver.common.action_chains import ActionChains
+from seleniumDEMO.webdriver.common.action_chains import ActionChains
 
 time1=1
 time2=60

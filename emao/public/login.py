@@ -5,7 +5,7 @@ Created on 2015年9月14日
 @fun：用户登录
 @environment：通用环境
 '''
-from selenium import webdriver
+from seleniumDEMO import webdriver
 import time
 
 import sys
